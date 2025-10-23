@@ -1,73 +1,112 @@
-# React + TypeScript + Vite
+# Mini ERP System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern Enterprise Resource Planning (ERP) system built with React, TypeScript, and Vite, featuring HR and Inventory management modules.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### HR Module
+- Employee Management
+- Add, Edit, and Delete employees
+- Track employee information including:
+  - Name, Position, Department
+  - Contact details (Email, Phone)
+  - Salary and Join Date
+- Clean data table with employee records
 
-## React Compiler
+### Inventory Module
+- Product/Inventory Management
+- Add, Edit, and Delete products
+- Track inventory information including:
+  - Product Name, SKU, Category
+  - Quantity and Price
+  - Supplier information
+  - Last Updated date
+- Stock status indicators (In Stock, Low Stock, Out of Stock)
+- Color-coded status badges
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Design
 
-## Expanding the ESLint configuration
+- **White Theme**: Clean, professional white background with subtle grays
+- **Sharp Corners**: All UI elements use sharp corners (0px border-radius) for a modern, crisp appearance
+- **Responsive Layout**: Adapts to different screen sizes
+- **Accessible**: Proper semantic HTML and keyboard navigation support
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **React 19.1.1** - UI framework
+- **TypeScript** - Type safety
+- **Vite 7.1.12** - Build tool and dev server
+- **React Router DOM** - Client-side routing
+- **CSS3** - Styling with CSS custom properties
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/lati-tibabu/mini-erp.git
+cd mini-erp
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+The built files will be in the `dist` directory.
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## Project Structure
+
+```
+mini-erp/
+├── src/
+│   ├── modules/
+│   │   ├── HR/
+│   │   │   ├── HRModule.tsx       # HR management component
+│   │   │   └── HRModule.css       # HR module styles
+│   │   └── Inventory/
+│   │       ├── InventoryModule.tsx # Inventory management component
+│   │       └── InventoryModule.css # Inventory module styles
+│   ├── App.tsx                     # Main app component with routing
+│   ├── App.css                     # App-level styles
+│   ├── main.tsx                    # Application entry point
+│   └── index.css                   # Global styles and theme
+├── public/                         # Static assets
+├── index.html                      # HTML template
+└── package.json                    # Dependencies and scripts
+```
+
+## License
+
+MIT
